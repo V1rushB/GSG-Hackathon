@@ -11,15 +11,16 @@ app.use(express.json());
 
 const dataSource = new DataSource({
     type: "mysql",
-    host: "localhost",
+    host: "meo.ckxcq2pvrc9s.eu-west-2.rds.amazonaws.com",
     port: 3306,
-    username: "root",
-    password: "",
+    username: "admin",
+    password: "rQjLt2ePdJ2qxAM01ufl",
     database: "gsg_hackaton_logs",
     entities: [Log],
     logging: true,
     synchronize: true
 });
+
 
 
 app.use('/rekognition', imageRekognitionRoute)
