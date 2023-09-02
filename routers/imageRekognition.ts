@@ -5,6 +5,8 @@ import { RekognitionClient, DetectLabelsCommand, Image, RecognizeCelebritiesComm
 import { log } from 'console';
 import { Log } from '../db/entities/Log.js';
 const router = express.Router();
+import path from 'path';
+
 const rekognitionClient = new RekognitionClient({ region: 'eu-west-2' });
 
 const storage = multer.diskStorage({
@@ -22,7 +24,7 @@ router.post('/identification', upload.single('file'), (req, res) => {
 
     if (req.file) {
         const imageURL = req.file.destination + req.file.filename
-        const image = fs.readFileSync(imageURL)
+        const image = fs.readFileSync(path.normalize(imageURL))
 
         image.toString('base64')
 
