@@ -21,7 +21,9 @@ const dataSource = new DataSource({
     synchronize: true
 });
 
-
+app.use('/health', (req, res) => {
+    res.sendStatus(200)
+})
 
 app.use('/rekognition', imageRekognitionRoute)
 

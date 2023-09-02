@@ -1,9 +1,16 @@
- https://deb.nodesource.com/setup_18.x | sudo -E bash -
+#!/bin/sh
+set -e
+
+sudo apt update
+sudo apt upgrade -y
+
+# install nodejs repo
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 
 sudo apt install nodejs jq curl -y
 
 # deploy app
-repo="mohammad-husaini/book-api"
+repo="mohammad-husaini/GSG_Hackaton"
 download_url=$(curl "https://api.github.com/repos/$repo/releases/latest" | jq --raw-output '.assets[0].browser_download_url')
 asset_name=$(curl "https://api.github.com/repos/$repo/releases/latest" | jq --raw-output '.assets[0].name')
 
