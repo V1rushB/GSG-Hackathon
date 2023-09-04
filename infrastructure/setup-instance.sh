@@ -10,7 +10,7 @@ curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install nodejs jq curl -y
 
 # deploy app
-repo="mohammad-husaini/GSG_Hackaton"
+repo="V1rushB/GSG-Hackathon"
 download_url=$(curl "https://api.github.com/repos/$repo/releases/latest" | jq --raw-output '.assets[0].browser_download_url')
 asset_name=$(curl "https://api.github.com/repos/$repo/releases/latest" | jq --raw-output '.assets[0].name')
 
